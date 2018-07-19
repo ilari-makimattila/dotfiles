@@ -1,66 +1,66 @@
 [submodule ".vim/bundle/ale"]
-	path = .vim/bundle/ale
+	path = dotfiles/.vim/bundle/ale
 	url = https://github.com/w0rp/ale.git
 [submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
+	path = dotfiles/.vim/bundle/ctrlp.vim
 	url = https://github.com/kien/ctrlp.vim.git
 [submodule ".vim/bundle/fsharp-vim"]
-	path = .vim/bundle/fsharp-vim
+	path = dotfiles/.vim/bundle/fsharp-vim
 	url = git://github.com/kongo2002/fsharp-vim.git
 [submodule ".vim/bundle/mustache"]
-	path = .vim/bundle/mustache
+	path = dotfiles/.vim/bundle/mustache
 	url = git://github.com/mustache/vim-mustache-handlebars.git
 [submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
+	path = dotfiles/.vim/bundle/nerdcommenter
 	url = git://github.com/scrooloose/nerdcommenter.git
 [submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
+	path = dotfiles/.vim/bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/nerdtree-git-plugin"]
-	path = .vim/bundle/nerdtree-git-plugin
+	path = dotfiles/.vim/bundle/nerdtree-git-plugin
 	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
 [submodule ".vim/bundle/python-mode"]
-	path = .vim/bundle/python-mode
+	path = dotfiles/.vim/bundle/python-mode
 	url = https://github.com/python-mode/python-mode.git
 [submodule ".vim/bundle/undotree"]
-	path = .vim/bundle/undotree
+	path = dotfiles/.vim/bundle/undotree
 	url = https://github.com/mbbill/undotree.git
 [submodule ".vim/bundle/vim-abolish"]
-	path = .vim/bundle/vim-abolish
+	path = dotfiles/.vim/bundle/vim-abolish
 	url = git://github.com/tpope/vim-abolish.git
 [submodule ".vim/bundle/VimClojure"]
-	path = .vim/bundle/VimClojure
+	path = dotfiles/.vim/bundle/VimClojure
 	url = git@github.com:vim-scripts/VimClojure.git
 [submodule ".vim/bundle/vim-cucumber"]
-	path = .vim/bundle/vim-cucumber
+	path = dotfiles/.vim/bundle/vim-cucumber
 	url = git://github.com/tpope/vim-cucumber.git
 [submodule ".vim/bundle/vim-endwise"]
-	path = .vim/bundle/vim-endwise
+	path = dotfiles/.vim/bundle/vim-endwise
 	url = git://github.com/tpope/vim-endwise.git
 [submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
+	path = dotfiles/.vim/bundle/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule ".vim/bundle/vim-haml"]
-	path = .vim/bundle/vim-haml
+	path = dotfiles/.vim/bundle/vim-haml
 	url = git://github.com/tpope/vim-haml.git
 [submodule ".vim/bundle/vim-javascript-syntax"]
-	path = .vim/bundle/vim-javascript-syntax
+	path = dotfiles/.vim/bundle/vim-javascript-syntax
 	url = https://github.com/jelera/vim-javascript-syntax.git
 [submodule ".vim/bundle/vim-markdown"]
-	path = .vim/bundle/vim-markdown
+	path = dotfiles/.vim/bundle/vim-markdown
 	url = https://github.com/plasticboy/vim-markdown.git
 [submodule ".vim/bundle/vim-rails"]
-	path = .vim/bundle/vim-rails
+	path = dotfiles/.vim/bundle/vim-rails
 	url = git://github.com/tpope/vim-rails.git
 [submodule ".vim/bundle/vim-repeat"]
-	path = .vim/bundle/vim-repeat
+	path = dotfiles/.vim/bundle/vim-repeat
 	url = git://github.com/tpope/vim-repeat.git
 [submodule ".vim/bundle/vim-surround"]
-	path = .vim/bundle/vim-surround
+	path = dotfiles/.vim/bundle/vim-surround
 	url = git://github.com/tpope/vim-surround.git
 [submodule ".vim/bundle/vim-unimpaired"]
-	path = .vim/bundle/vim-unimpaired
+	path = dotfiles/.vim/bundle/vim-unimpaired
 	url = git://github.com/tpope/vim-unimpaired.git
 [submodule ".vim/bundle/vim-vividchalk"]
-	path = .vim/bundle/vim-vividchalk
+	path = dotfiles/.vim/bundle/vim-vividchalk
 	url = git://github.com/tpope/vim-vividchalk.git
