@@ -18,7 +18,7 @@ export git_setup_aliases="yes"
 # Git Index Config
 # ----------------------------------------------
 # Repos will be automatically added from this directory.
-export GIT_REPO_DIR="/home/miraji/projects"
+export GIT_REPO_DIR="$HOME/projects"
 # Add the full paths of any extra repos to GIT_REPOS, separated with ':'
 # e.g. "/opt/rails/project:/opt/rails/another project:$HOME/other/repo"
 export GIT_REPOS=""
@@ -110,7 +110,7 @@ git_pull_request_alias="gpr"
 # Git Keyboard Shortcuts
 # ----------------------------------------------
 # Keyboard shortcuts are on by default. Set this to 'false' to disable them.
-git_keyboard_shortcuts_enabled="true"
+git_keyboard_shortcuts_enabled="false"
 git_commit_all_keys="\C-x "        		  # CTRL+x, SPACE
 git_add_and_commit_keys="\C-xc"    		  # CTRL+x, c
 git_commit_all_with_ci_skip_keys="\C-xv"  # CTRL+x, v    (Appends [ci skip] to commit message)
