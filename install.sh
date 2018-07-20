@@ -22,7 +22,6 @@ link() {
 for f in $(find "$DIR/dotfiles" -maxdepth 1 | tail -n +2)
 do
     file=$(basename "$f")
-    echo "$f = $file"
     link "$file"
 done
 
