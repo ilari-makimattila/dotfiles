@@ -116,6 +116,8 @@ with-dotenv() {
   (source <(sed '/^$/d;/^#.*/d;s/^/export /' .env) && "$@")
 }
 
+# Auterion funcs
+. ~/.dotfiles/dotfiles/.auterion.rc.sh
 
 #
 # Personal aliases
