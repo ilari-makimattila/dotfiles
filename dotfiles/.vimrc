@@ -126,3 +126,7 @@ let maplocalleader = "\\"
 
 " automatically change directory to current file
 set autochdir
+
+" Rust autocomplete
+set hidden
+let g:racer_cmd = "/home/ilari/.cargo/bin/racer"
