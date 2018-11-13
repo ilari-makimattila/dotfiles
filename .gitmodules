@@ -73,3 +73,6 @@
 [submodule "dotfiles/.vim/bundle/vim-racer"]
 	path = dotfiles/.vim/bundle/vim-racer
 	url = https://github.com/racer-rust/vim-racer.git
+[submodule "dotfiles/.vim/bundle/yats.vim"]
+	path = dotfiles/.vim/bundle/yats.vim
+	url = https://github.com/HerringtonDarkholme/yats.vim.git
