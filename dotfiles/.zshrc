@@ -1,13 +1,23 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export EDITOR='vim'
+export WORKON_HOME="~/.virtualenvs"
+
 # Path to your oh-my-zsh installation.
-  export ZSH=/home/miraji/.oh-my-zsh
+  export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="robbyrussell"
+
+# Set list of themes to load
+# Setting this variable when ZSH_THEME=random
+# cause zsh load theme from this variable instead of
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -51,26 +61,80 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker docker-compose terraform virtualenvwrapper)
+plugins=(
+  git
+  virtualenv
+  virtualenvwrapper
+  docker
+  docker-compose
+  terraform
+  cargo
+  rust
+)
 
 source $ZSH/oh-my-zsh.sh
 
+## Vi mode with minor changes
+# Updates editor information when the keymap changes.
+function zle-keymap-select() {
+  zle reset-prompt
+  zle -R
+}
+
+# Ensure that the prompt is redrawn when the terminal size changes.
+TRAPWINCH() {
+  zle &&  zle -R
+}
+
+zle -N zle-keymap-select
+zle -N edit-command-line
+
+
+bindkey -v
+
+# allow v to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+#bindkey -M vicmd 'v' edit-command-line
+bindkey "^V" edit-command-line  # CTRL+v to edit in $EDITOR
+
+# allow ctrl-p, ctrl-n for navigate history (standard behaviour)
+bindkey '^P' up-history
+bindkey '^N' down-history
+
+# allow ctrl-h, ctrl-w, ctrl-? for char and word deletion (standard behaviour)
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+
+# allow ctrl-r to perform backward search in history
+bindkey '^r' history-incremental-search-backward
+
+# allow ctrl-a and ctrl-e to move to beginning/end of line
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# if mode indicator wasn't setup by theme, define default
+if [[ "$MODE_INDICATOR" == "" ]]; then
+  MODE_INDICATOR="%{$fg_bold[red]%}<%{$fg[red]%}<<%{$reset_color%}"
+fi
+
+function vi_mode_prompt_info() {
+  echo "${${KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/}"
+}
+
+# define right prompt, if it wasn't defined by a theme
+if [[ "$RPS1" == "" && "$RPROMPT" == "" ]]; then
+  RPS1='$(vi_mode_prompt_info)'
+fi
+
 # User configuration
 
-bindkey -v  # vi input mode
-bindkey "^V" edit-command-line  # CTRL+v to edit in $EDITOR
+export KEYTIMEOUT=1
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -87,27 +151,18 @@ bindkey "^V" edit-command-line  # CTRL+v to edit in $EDITOR
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-## SCM Breeze stuff
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+source /usr/share/nvm/init-nvm.sh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-alias gc!='git commit --amend'
+[ -s "/home/ilari/.scm_breeze/scm_breeze.sh" ] && source "/home/ilari/.scm_breeze/scm_breeze.sh"
 
-#unalias gd
-#unalias gdc
-#unalias gdw
-#
-#gd() { git diff --color "$@" | diff-so-fancy | less --tabs=1,5 -RFX }
-#gdc() { git diff --cached --color "$@" | diff-so-fancy | less --tabs=1,5 -RFX }
-#gdw() { git diff --word-diff --color "$@" | diff-so-fancy | less --tabs=1,5 -RFX }
-#
+. ~/.dotfiles/dotfiles/.auterion.rc.sh
 
-#
-# Siroop aliases
-#
-
+alias gc!="gc --amend"
 alias tf=terraform
+alias bell="echo -e '\a'"
 
-with-dotenv() { 
+with-dotenv() {
   if ! [ -r .env ]
   then
     echo -e '\e[1;31mNo .env in current directory!\e[0m'
@@ -116,13 +171,5 @@ with-dotenv() {
   (source <(sed '/^$/d;/^#.*/d;s/^/export /' .env) && "$@")
 }
 
-# Auterion funcs
-. ~/.dotfiles/dotfiles/.auterion.rc.sh
+export PATH="$PATH:$HOME/bin"
 
-#
-# Personal aliases
-#
-
-alias irkki="LC_ALL=en_US.UTF-8 mosh kryil@reboot.fi -- screen -rD"
-
-unset VIRTUAL_ENV_DISABLE_PROMPT
