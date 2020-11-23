@@ -3,3 +3,5 @@
 	email = ilari.makimattila@gmail.com
 [merge]
 	tool = vimdiff
+[pull]
+	ff = only
