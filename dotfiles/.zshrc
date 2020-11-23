@@ -151,7 +151,7 @@ export KEYTIMEOUT=1
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /usr/share/nvm/init-nvm.sh
+[ -s "/usr/share/nvm/init-nvm.sh" ] && source /usr/share/nvm/init-nvm.sh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 [ -s "/home/ilari/.scm_breeze/scm_breeze.sh" ] && source "/home/ilari/.scm_breeze/scm_breeze.sh"
