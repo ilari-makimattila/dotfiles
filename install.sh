@@ -25,3 +25,14 @@ do
     link "$file"
 done
 
+for f in $(find "$DIR/skel" -type f)
+do
+  o=$HOME/$(echo $f | sed "s:$DIR/skel/::")
+  if ! [ -a "$o" ]
+  then
+    echo "installing skel file $f -> $o"
+    install -D "$f" "$o"
+  else
+    echo "'$o' exists, will not override"
+  fi
+done

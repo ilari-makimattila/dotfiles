@@ -1,25 +1,23 @@
 #!/bin/bash
 
-# TODO make this configurable
-work_activity="3d2c2c5c-a7f3-42c8-ad36-1cdfb114d457"
+. $HOME/.config/dotfiles/default-browser.conf
 
-personal_sites=('https://www.facebook.com/*')
+browser="$PERSONAL_BROWSER"
 
 activity=$(qdbus org.kde.ActivityManager /ActivityManager/Activities CurrentActivity)
-browser=/usr/bin/firefox
 is_personal_url=0
 
-for site in $personal_sites
+for site in ${PERSONAL_SITES[@]}
 do
-  if [[ "$*" == $site ]]
+  if [[ "$*" =~ $site ]]
   then
     is_personal_url=1
   fi
 done
 
-if [ $is_personal_url -eq 0 ] && [ $work_activity = $activity ]
+if [ $is_personal_url -eq 0 ] && [ $WORK_ACTIVITY = $activity ]
 then
-  browser=/usr/bin/firefox-developer-edition
+  browser="$WORK_BROWSER"
 fi
 
 exec "$browser" "$@"
