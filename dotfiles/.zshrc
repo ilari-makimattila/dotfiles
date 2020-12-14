@@ -156,7 +156,13 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 [ -s "/home/ilari/.scm_breeze/scm_breeze.sh" ] && source "/home/ilari/.scm_breeze/scm_breeze.sh"
 
-. ~/.dotfiles/dotfiles/.auterion.rc.sh
+# Load profiles from dotfiles/profile.d
+if test -d /$HOME/.dotfiles/profile.d/; then
+  for profile in /$HOME/.dotfiles/profile.d/*.sh; do
+    test -r "$profile" && . "$profile"
+  done
+  unset profile
+fi
 
 alias gc!="gc --amend"
 alias tf=terraform
