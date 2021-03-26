@@ -14,9 +14,9 @@ set nocompatible
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
-set tabstop=2
+set tabstop=4
 set smarttab
-set shiftwidth=2
+set shiftwidth=4
 set autoindent
 set expandtab
 set modeline
