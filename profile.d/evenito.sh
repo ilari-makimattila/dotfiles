@@ -5,6 +5,6 @@ function print-vhosts() {
 function update-vhosts() {
   for vhost in $(print-vhosts)
   do
-    grep -q $vhost /etc/hosts || echo "127.1.0.1 $vhost" | sudo tee -a /etc/hosts
+    grep -q " $vhost" /etc/hosts || echo "127.1.0.1 $vhost" | sudo tee -a /etc/hosts
   done
 }
