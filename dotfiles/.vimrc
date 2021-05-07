@@ -116,7 +116,11 @@ autocmd FileType python nnoremap <LocalLeader>= :0,$!yapf<CR>
 
 
 " python-mode
+let g:pymode = 1
 let g:pymode_lint_checkers = ['flake8'] " linters
+let g:pymode_trim_whitespaces = 1
+let g:pymode_options = 1
+let g:pymode_folding = 0
 
 
 " leaders
@@ -130,3 +134,13 @@ set autochdir
 " Rust autocomplete
 set hidden
 let g:racer_cmd = "/home/ilari/.cargo/bin/racer"
+
+augroup Racer
+    autocmd!
+    autocmd FileType rust nmap <buffer> gd         <Plug>(rust-def)
+    autocmd FileType rust nmap <buffer> gs         <Plug>(rust-def-split)
+    autocmd FileType rust nmap <buffer> gx         <Plug>(rust-def-vertical)
+    autocmd FileType rust nmap <buffer> gt         <Plug>(rust-def-tab)
+    autocmd FileType rust nmap <buffer> <leader>gd <Plug>(rust-doc)
+    autocmd FileType rust nmap <buffer> <leader>gD <Plug>(rust-doc-tab)
+augroup END
