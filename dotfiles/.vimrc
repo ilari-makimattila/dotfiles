@@ -5,7 +5,16 @@ endif
 
 filetype off
 
-call pathogen#infect()
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'python-mode/python-mode'
+Plug 'w0rp/ale'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-endwise'
+
+call plug#end()
 
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
